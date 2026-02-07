@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_ACCESS_TOKEN}
+      - run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_ACCESS_TOKEN}}
       - run: docker build -t nrj6670/prod_docker_app -f Dockerfile.dev .
       - run: docker run -e CI=true -it --name prod_docker_app nrj6670/prod_docker_app npm run test
